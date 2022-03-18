@@ -7,10 +7,12 @@ import {
   Group,
   Box,
   PasswordInput,
+  BackgroundImage,
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useNavigate } from "react-router-dom";
 import logo from "../../logo.svg";
+import feature from "../img/feature.png"
 
 function SignUp() {
   const navigate = useNavigate();
@@ -27,8 +29,15 @@ function SignUp() {
     },
   });
   return (
-    <Wrapper>
-      <Box sx={{ maxWidth: 300 }} mx="auto">
+    <div style={{
+      height: "90vh",
+      width: "100%",
+      backgroundImage: `url(${feature})`,
+    }}>
+    <Wrapper >
+      <Box sx={{ maxWidth: 300 }} mx="auto" style={{
+      backgroundImage: `url(${feature})`,
+    }}>
         <img src={logo} className="App-logo" alt="logo" />
         <EmailPassword>
           <form onSubmit={form.onSubmit((values) => console.log(values))}>
@@ -50,6 +59,7 @@ function SignUp() {
         </EmailPassword>
       </Box>
     </Wrapper>
+    </div>
   );
 }
 const Wrapper = styled.div`

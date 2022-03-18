@@ -12,6 +12,8 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import Sign from "../Sign";
 import logo from "../../logo.svg";
+import feature from "../img/feature.png"
+
 
 function Login() {
   const navigate = useNavigate();
@@ -30,6 +32,11 @@ function Login() {
   });
 
   return (
+    <div style={{
+      height: "90vh",
+      width: "100%",
+      backgroundImage: `url(${feature})`,
+    }}>
     <Wrapper>
       <Box sx={{ maxWidth: 350 }} mx="auto">
         <img src={logo} className="App-logo" alt="logo" />
@@ -44,7 +51,7 @@ function Login() {
           />
           <PassForg>
             <Password>Password</Password>
-            <Forget onClick={() => navigate("/ForgetPassword")}>
+            <Forget onClick={() => navigate("/ForgotPassword")}>
               Forget password?
             </Forget>
           </PassForg>
@@ -70,6 +77,7 @@ function Login() {
         </form>
       </Box>
     </Wrapper>
+    </div>
   );
 }
 const Wrapper = styled.div`
