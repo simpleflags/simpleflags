@@ -30,7 +30,6 @@ const Projects = styled.div`
   background-size: contain;
   padding-top: 20px;
   background-image: url(${img});
-  /* background-repeat: no-repeat, repeat; */
   background-size: cover;
   background-position: center;
 `;

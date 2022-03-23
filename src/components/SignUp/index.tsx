@@ -84,7 +84,6 @@ function SignUp() {
 }
 const Wrapper = styled.div`
   padding: 40px;
-  /* padding-top: 80px; */
   -webkit-box-shadow: 0px 2px 15px 5px #dedede;
   box-shadow: 0px 2px 15px 5px #dedede;
   background-color: white;

@@ -1,13 +1,24 @@
-import { Radio, RadioGroup, TextInput } from "@mantine/core";
+import { Paper, Radio, RadioGroup, TextInput } from "@mantine/core";
+import { formList } from "@mantine/form";
 import React, { useCallback, useState } from "react";
 import styled from "styled-components";
 
 function Flag(props: { flag: string }) {
+  const [first, setFirst] = useState({ on: false, off: false });
   const [activeFlags, setActiveFlags] = useState<any[]>([]);
-
+  const [gender, setGender] = React.useState();
+  const handleChange = (e: any) => {
+    const target = e.target;
+    if (target.checked) {
+      setGender(target.value);
+    }
+  };
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    console.log(gender);
+  };
   return (
     <Wrapper>
-      {/* FLAG DETAILS */}
       {props.flag}
       <FF>
         <ul>
@@ -17,171 +28,194 @@ function Flag(props: { flag: string }) {
           <li>
             Identify: <TextInput placeholder="Identify:" />
           </li>
-          {/* <li>
-            Default On Variont: ON{" "}
-            <TextInput placeholder="Default ON Variont:" />{" "}
-          </li>
-          <li>
-            Default OF Variont: OF{" "}
-            <TextInput placeholder="Default OF Variont:" />{" "}
-          </li> */}
         </ul>
       </FF>
-      {/* <List>
-        <div>Lista sa kolonama</div>
-        <div>Identifaj </div>
-        <div>name</div>
-        <div>description </div>
-        <div>value</div>
-      </List> */}
       <Status>
-        <table>
-          <tr>
-            <th>
-              Default
-              <ON>
-                <th>On</th>
-                <th>Off</th>
-              </ON>
-            </th>
-            <th>Identify</th>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Value</th>
-          </tr>
+        <Paper>
+          <table style={{ marginBottom: 50, marginRight: 50 }}>
+            <tr>
+              <th>
+                Default
+                <ON>
+                  <th>On</th>
+                  <th>Off</th>
+                </ON>
+              </th>
+              <th>Identify</th>
+              <th>Name</th>
+              <th>Description</th>
+              <th>Value</th>
+            </tr>
 
-          <tr /*style={{activeFlags.some((searchFlag: any) => searchFlag === Flag)}} */
-            style={{
-              backgroundColor: activeFlags.includes("#00ff00") ? "#00ff00" : "",
-            }}
-          >
-            <td>
-              {/* <input type="text" name="naziv" placeholder="True" /> */}
-              {/* <TextInput placeholder="True" /> 1 red u 1 redu */}
+            <tr
+              style={{
+                background: activeFlags.includes("red-1")
+                  ? "#00ff00"
+                  : activeFlags.includes("red-2")
+                  ? "red"
+                  : "",
+              }}
+            >
               <td>
-                {" "}
-                <RadionCenter>
-                  <RadioGroup required>
+                <td>
+                  <form onSubmit={handleSubmit}>
+                    {" "}
+                    <RadionCenter>
+                      <Radio
+                        value="red-1"
+                        checked={gender === "red-1"}
+                        onChange={handleChange}
+                        onClick={() => {
+                          setActiveFlags(["red-1"]);
+                          console.log(activeFlags);
+                        }}
+                      />
+                    </RadionCenter>
+                  </form>
+                </td>
+
+                <td>
+                  <RadionCenter>
                     <Radio
-                      value="react"
+                      value="red-2"
+                      checked={gender === "red-2"}
+                      onChange={handleChange}
                       onClick={() => {
-                        setActiveFlags(["#00ff00"]);
+                        setActiveFlags(["red-2"]);
                         console.log(activeFlags);
                       }}
                     />
-                  </RadioGroup>
-                </RadionCenter>
+                  </RadionCenter>
+                </td>
+              </td>
+              <td>
+                <TextInput placeholder="True" size="xs" />
+              </td>
+              <td>
+                <TextInput placeholder="True" size="xs" />
+              </td>
+              <td>
+                <TextInput placeholder="True" size="xs" />
+              </td>
+              <td>
+                <TextInput placeholder="/" size="xs" />
+              </td>
+            </tr>
+
+            <tr
+              style={{
+                backgroundColor: activeFlags.includes("red-3")
+                  ? "#00ff00"
+                  : activeFlags.includes("red-4")
+                  ? "red"
+                  : "",
+              }}
+            >
+              <td>
+                <form onSubmit={handleSubmit}>
+                  <td>
+                    {" "}
+                    <RadionCenter>
+                      <Radio
+                        disabled={first.on}
+                        value="red-3"
+                        checked={gender === "red-3"}
+                        onChange={handleChange}
+                        onClick={() => {
+                          setActiveFlags(["red-3"]);
+                          console.log(activeFlags);
+                        }}
+                      />
+                    </RadionCenter>
+                  </td>
+                  <td>
+                    {" "}
+                    <RadionCenter>
+                      <Radio
+                        value="red-4"
+                        checked={gender === "red-4"}
+                        onChange={handleChange}
+                        onClick={() => {
+                          setActiveFlags(["red-4"]);
+                          console.log(activeFlags);
+                        }}
+                      />
+                    </RadionCenter>
+                  </td>
+                </form>
               </td>
 
               <td>
-                <RadionCenter>
-                  <RadioGroup>
+                <TextInput placeholder="False" size="xs" />
+              </td>
+              <td>
+                <TextInput placeholder="True" size="xs" />
+              </td>
+              <td>
+                <TextInput placeholder="/" size="xs" />
+              </td>
+
+              <td>
+                <TextInput placeholder="True" size="xs" />
+              </td>
+            </tr>
+            <tr
+              style={{
+                backgroundColor: activeFlags.includes("red-5")
+                  ? "#00ff00"
+                  : activeFlags.includes("red-6")
+                  ? "red"
+                  : "",
+              }}
+            >
+              <td>
+                <td>
+                  {" "}
+                  <RadionCenter>
                     <Radio
-                      value="react"
+                      value="red-5"
+                      checked={gender === "red-5"}
+                      onChange={handleChange}
                       onClick={() => {
-                        setActiveFlags(["red"]);
+                        setActiveFlags(["red-5"]);
                         console.log(activeFlags);
                       }}
-                      style={{
-                        backgroundColor: activeFlags.includes("red")
-                          ? "red"
-                          : "",
+                    />
+                  </RadionCenter>
+                </td>
+                <td>
+                  {" "}
+                  <RadionCenter>
+                    <Radio
+                      value="red-6"
+                      checked={gender === "red-6"}
+                      onChange={handleChange}
+                      onClick={() => {
+                        setActiveFlags(["red-6"]);
+                        console.log(activeFlags);
                       }}
                     />
-                  </RadioGroup>
-                </RadionCenter>
+                  </RadionCenter>
+                </td>
               </td>
-            </td>
-            <td>
-              {/* <input type="text" name="naziv" placeholder="True" /> */}
-              <TextInput placeholder="True" size="xs" />
-            </td>
-            <td>
-              {/* <input type="text" name="naziv" placeholder="True" /> */}
-              <TextInput placeholder="True" size="xs" />
-            </td>
-            <td>
-              {/* <input type="text" name="naziv" placeholder="True" /> */}
-              <TextInput placeholder="True" size="xs" />
-            </td>
-            <td>
-              {/* <input type="text" name="naziv" placeholder="/" /> */}
-              <TextInput placeholder="/" size="xs" />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              {/* <input type="text" name="naziv" placeholder="False" /> */}
-              {/* <TextInput placeholder="False" /> 2 red u 1 redu */}
+
               <td>
-                {" "}
-                <RadionCenter>
-                  <Radio value="react" />
-                </RadionCenter>
+                <TextInput placeholder="False" size="xs" />
               </td>
               <td>
-                {" "}
-                <RadionCenter>
-                  <Radio value="react" />
-                </RadionCenter>
+                <TextInput placeholder="True" size="xs" />
               </td>
-            </td>
-            <td>
-              {/* <input type="text" name="naziv" placeholder="False" /> */}
-              <TextInput placeholder="False" size="xs" />
-            </td>
-            <td>
-              {/* <input type="text" name="naziv" placeholder="True" /> */}
-              <TextInput placeholder="True" size="xs" />
-            </td>
-            <td>
-              {/* <input type="text" name="naziv" placeholder="/" /> */}
-              <TextInput placeholder="/" size="xs" />
-            </td>
 
-            <td>
-              {/* <input type="text" name="naziv" placeholder="True" /> */}
-              <TextInput placeholder="True" size="xs" />
-            </td>
-          </tr>
-          <tr>
-            <td>
-              {/* <input type="text" name="naziv" placeholder="None" /> */}
-              {/* <TextInput placeholder="None" />  3 red u 1 redu*/}
               <td>
-                {" "}
-                <RadionCenter>
-                  <Radio value="react" />
-                </RadionCenter>
+                <TextInput placeholder="/" size="xs" />
               </td>
+
               <td>
-                {" "}
-                <RadionCenter>
-                  <Radio value="react" />
-                </RadionCenter>
+                <TextInput placeholder="True" size="xs" />
               </td>
-            </td>
-
-            <td>
-              {/* <input type="text" name="naziv" placeholder="False" /> */}
-              <TextInput placeholder="False" size="xs" />
-            </td>
-            <td>
-              {/* <input type="text" name="naziv" placeholder="True" /> */}
-              <TextInput placeholder="True" size="xs" />
-            </td>
-
-            <td>
-              {/* <input type="text" name="naziv" placeholder="/" /> */}
-              <TextInput placeholder="/" size="xs" />
-            </td>
-
-            <td>
-              {/* <input type="text" name="naziv" placeholder="True" /> */}
-              <TextInput placeholder="True" size="xs" />
-            </td>
-          </tr>
-        </table>
+            </tr>
+          </table>
+        </Paper>
       </Status>
     </Wrapper>
   );
@@ -199,7 +233,6 @@ const Wrapper = styled.div``;
 
 const FF = styled.div`
   font-size: 18px;
-  /* border-bottom: 1px solid #0278d5; */
   border-bottom: 0.5px solid #d9dae5;
 
   text-align: left;
@@ -239,16 +272,9 @@ const Status = styled.table`
   margin-bottom: 30px;
   padding-bottom: 30px;
 
-  /* /* border-radius: 1px; */
-  /* border: 1px solid black; */
-
   table,
   td,
   th {
-    border: 0.5px solid #d9dae5;
-    /* -webkit-box-shadow: 0px 5px 15px -3px #ebebeb;
-    box-shadow: 0px 5px 15px -3px #ebebeb; */
-    /* text-align: left; */
     border-collapse: collapse;
     width: 165vh;
   }
@@ -270,7 +296,6 @@ const Status = styled.table`
 
   th,
   td {
-    /* padding: 20px; */
     padding: 8px;
   }
 `;
