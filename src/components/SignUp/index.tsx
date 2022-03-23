@@ -1,64 +1,84 @@
 import React from "react";
 import styled from "styled-components";
-import {
-  TextInput,
-  Checkbox,
-  Button,
-  Group,
-  Box,
-  PasswordInput,
-  BackgroundImage,
-} from "@mantine/core";
+import { TextInput, Button, Group, Box, PasswordInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useNavigate } from "react-router-dom";
 import logo from "../../logo.svg";
-import feature from "../img/feature.png"
+import feature from "../img/feature.png";
+import { api } from "../../api";
+
+type User = {
+  email: string;
+  password: string;
+  repeat_password: string;
+};
 
 function SignUp() {
+  const onSubmit = (user: User) => {
+    api.post("/signup", user);
+  };
+
   const navigate = useNavigate();
-  const form = useForm({
+  const {
+    values,
+    onSubmit: mantineSubmit,
+    getInputProps,
+  } = useForm({
     initialValues: {
       email: "",
       password: "",
-      termsOfService: false,
+      repeat_password: "",
     },
 
     validate: {
       email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
-      password: (value) => (/^\S+@\S+$/.test(value) ? null : "password"),
+      password: (value) =>
+        value.length > 5 ? null : "password must be at least 5 caracters",
+      repeat_password: (value) =>
+        values.password === value ? null : "password do not match",
     },
   });
   return (
-    <div style={{
-      height: "90vh",
-      width: "100%",
-      backgroundImage: `url(${feature})`,
-    }}>
-    <Wrapper >
-      <Box sx={{ maxWidth: 300 }} mx="auto" style={{
-      backgroundImage: `url(${feature})`,
-    }}>
-        <img src={logo} className="App-logo" alt="logo" />
-        <EmailPassword>
-          <form onSubmit={form.onSubmit((values) => console.log(values))}>
-            <Email>Email</Email>
-            <TextInput
-              required
-              placeholder="your@email.com"
-              {...form.getInputProps("email")}
-            />
-            <Password>Password</Password>
-            <PasswordInput
-              placeholder="Password"
-              {...form.getInputProps("password")}
-            />
-            <Group position="right" mt="md">
-              <Button type="submit">Submit</Button>
-            </Group>
-          </form>
-        </EmailPassword>
-      </Box>
-    </Wrapper>
+    <div
+      style={{
+        height: "90vh",
+        width: "100%",
+        backgroundImage: `url(${feature})`,
+      }}
+    >
+      <Wrapper>
+        <Box sx={{ maxWidth: 300 }} mx="auto">
+          <img src={logo} className="App-logo" alt="logo" />
+          <EmailPassword>
+            <form
+              onSubmit={mantineSubmit((values: User) => {
+                onSubmit(values);
+              })}
+            >
+              <Email>Email</Email>
+              <TextInput
+                required
+                placeholder="your@email.com"
+                {...getInputProps("email")}
+              />
+              <Password>Password</Password>
+              <PasswordInput
+                placeholder="Password"
+                {...getInputProps("password")}
+              />
+              <PasswordGap>
+                <PasswordInput
+                  placeholder="Repeat password"
+                  {...getInputProps("repeat_password")}
+                />
+              </PasswordGap>
+              <Group position="right" mt="md">
+                <Button type="submit">Submit</Button>
+              </Group>
+            </form>
+          </EmailPassword>
+        </Box>
+      </Wrapper>
     </div>
   );
 }
@@ -86,5 +106,8 @@ const Password = styled.div`
   margin-bottom: 12px;
   margin-top: 15px;
   width: 45px;
+`;
+const PasswordGap = styled.div`
+  padding-top: 30px;
 `;
 export default SignUp;

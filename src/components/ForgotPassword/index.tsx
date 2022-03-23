@@ -1,62 +1,45 @@
 import React from "react";
 import styled from "styled-components";
 import { useForm } from "@mantine/form";
-import {  
-  TextInput,
-  Checkbox,
-  Group,
- Button,
-  Box } from "@mantine/core";
+import { TextInput, Group, Button, Box } from "@mantine/core";
 import logo from "../../logo.svg";
-import feature from "../img/feature.png"
+import feature from "../img/feature.png";
 function ForgotPassw() {
   const form = useForm({
     initialValues: {
-     email: "",
+      email: "",
     },
 
     validate: {
-      email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email")
+      email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
     },
   });
 
   return (
-    <div style={{
-      height: "90vh",
-      width: "100%",
-      backgroundImage: `url(${feature})`,
-    }}>
-    <Wrapper>
-      <Box sx={{ maxWidth: 340 }} mx="auto" style={{
-      // height: "90vh",
-      // width: "100%",
-      backgroundImage: `url(${feature})`,
-    }}>
-        <img src={logo} className="App-logo" alt="logo" />
-        <form onSubmit={form.onSubmit((values) => console.log(values))}>
-          <Email>Email</Email>
+    <div
+      style={{
+        height: "90vh",
+        width: "100%",
+        backgroundImage: `url(${feature})`,
+      }}
+    >
+      <Wrapper>
+        <Box sx={{ maxWidth: 340 }} mx="auto">
+          <img src={logo} className="App-logo" alt="logo" />
+          <form onSubmit={form.onSubmit((values) => console.log(values))}>
+            <Email>Email</Email>
             <TextInput
               required
               placeholder="your@email.com"
               {...form.getInputProps("email")}
             />
-            {/* <Password>Password</Password>
-          <PasswordInput
-            placeholder="Password"
-            {...form.getInputProps("password")}
-          />
-          <ConfirmPassword>Confirm password</ConfirmPassword>
-          <PasswordInput
-            mt="sm"
-            placeholder="Confirm password"
-            {...form.getInputProps("confirmPassword")}
-          /> */}
-          <Group position="right" mt="md">
-            <Button type="submit">Submit</Button>
-          </Group>
-        </form>
-      </Box>
-    </Wrapper>
+
+            <Group position="right" mt="md">
+              <Button type="submit">Submit</Button>
+            </Group>
+          </form>
+        </Box>
+      </Wrapper>
     </div>
   );
 }
@@ -75,14 +58,5 @@ const Email = styled.div`
   width: 45px;
   margin-bottom: 12px;
 `;
-// const Password = styled.div`
-//   width: 45px;
-//   margin-bottom: 12px;
-// `;
-// const ConfirmPassword = styled.div`
-//   display: flex;
-//   width: 50%;
-//   margin-bottom: 12px;
-//   margin-top: 12px;
-// `;
+
 export default ForgotPassw;

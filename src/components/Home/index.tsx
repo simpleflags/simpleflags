@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 function Home() {
@@ -18,8 +17,6 @@ const Wrapper = styled.div`
   font-size: 30px;
   display: flex;
   text-decoration: none;
-  /* height: 100%; */
-  /* width: 100%; */
 `;
 
 const AllProjects = styled.div`

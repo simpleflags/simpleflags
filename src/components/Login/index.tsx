@@ -12,10 +12,22 @@ import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import Sign from "../Sign";
 import logo from "../../logo.svg";
-import feature from "../img/feature.png"
+import feature from "../img/feature.png";
+import { api } from "../../api";
 
+type User = {
+  email: string;
+  password: string;
+};
 
 function Login() {
+  const onSubmit = (user: User) => {
+    api.post("/login", user).then((response) => {
+      if (response.status === 200) {
+        navigate("/Home");
+      }
+    });
+  };
   const navigate = useNavigate();
   const form = useForm({
     initialValues: {
@@ -26,57 +38,58 @@ function Login() {
 
     validate: {
       email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
-      password: (value) =>
-        /^\S+@\S+$/.test(value) ? null : "Invalid password",
+      password: (value) => (value.length ? null : "Invalid password"),
     },
   });
 
   return (
-    <div style={{
-      height: "90vh",
-      width: "100%",
-      backgroundImage: `url(${feature})`,
-    }}>
-    <Wrapper>
-      <Box sx={{ maxWidth: 350 }} mx="auto">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Sign />
+    <div
+      style={{
+        height: "90vh",
+        width: "100%",
+        backgroundImage: `url(${feature})`,
+      }}
+    >
+      <Wrapper>
+        <Box sx={{ maxWidth: 350 }} mx="auto">
+          <img src={logo} className="App-logo" alt="logo" />
+          <Sign />
 
-        <form onSubmit={form.onSubmit((values) => console.log(values))}>
-          <Email>Email</Email>
-          <TextInput
-            required
-            placeholder="your@email.com"
-            {...form.getInputProps("email")}
-          />
-          <PassForg>
-            <Password>Password</Password>
-            <Forget onClick={() => navigate("/ForgotPassword")}>
-              Forget password?
-            </Forget>
-          </PassForg>
-          <PasswordInput
-            placeholder="Password"
-            {...form.getInputProps("password")}
-          />
-          <Checkbox
-            mt="md"
-            label="I agree to sell my privacy"
-            {...form.getInputProps("termsOfService", { type: "checkbox" })}
-          />
+          <form onSubmit={form.onSubmit((values) => onSubmit(values))}>
+            <Email>Email</Email>
+            <TextInput
+              required
+              placeholder="your@email.com"
+              {...form.getInputProps("email")}
+            />
+            <PassForg>
+              <Password>Password</Password>
+              <Forget onClick={() => navigate("/ForgotPassword")}>
+                Forgot password?
+              </Forget>
+            </PassForg>
+            <PasswordInput
+              placeholder="Password"
+              {...form.getInputProps("password")}
+            />
+            <Checkbox
+              mt="md"
+              label="I agree to sell my privacy"
+              {...form.getInputProps("termsOfService", { type: "checkbox" })}
+            />
 
-          <Group position="right" mt="md">
-            <Button type="submit" onClick={() => navigate("/Home")}>
-              Sign in
-            </Button>
-          </Group>
-          <Acc>
-            <div>No account?</div>
-            <SignUpp onClick={() => navigate("/SignUp")}>Sign up</SignUpp>
-          </Acc>
-        </form>
-      </Box>
-    </Wrapper>
+            <Group position="right" mt="md">
+              <Button type="submit" /* onClick={() => navigate("/Home")}  */>
+                Sign in
+              </Button>
+            </Group>
+            <Acc>
+              <div>No account?</div>
+              <SignUpp onClick={() => navigate("/SignUp")}>Sign up</SignUpp>
+            </Acc>
+          </form>
+        </Box>
+      </Wrapper>
     </div>
   );
 }
@@ -101,6 +114,7 @@ const Acc = styled.div`
 `;
 const SignUpp = styled.div`
   color: #0278d5;
+  cursor: pointer;
 `;
 
 const Email = styled.div`

@@ -1,8 +1,8 @@
 import React from "react";
-import { Outlet, Route, Routes } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import styled from "styled-components";
 import Navigation from "../Navigation";
-import feature from "../img/feature.png";
+import img from "../img/img-1.jpg";
 
 function PrivateRoute() {
   return (
@@ -10,14 +10,9 @@ function PrivateRoute() {
       <Navigation />
       <div>
         <Projects>
-          Projects
+          All Feature Flags
           <One>
-            All Feature Flags
             <p>This page shows all the future flags for the project.</p>
-            <p>
-              Click on a flag name to a view or change targeting and rollout
-              rulles.
-            </p>
           </One>
         </Projects>
         <Outlet />
@@ -29,16 +24,21 @@ function PrivateRoute() {
 const Projects = styled.div`
   text-decoration: none;
   background-color: #0278d5;
+  color: white;
   height: 15vh;
   width: 180vh;
   background-size: contain;
-  /* background: url(${feature}); */
+  padding-top: 20px;
+  background-image: url(${img});
+  /* background-repeat: no-repeat, repeat; */
+  background-size: cover;
+  background-position: center;
 `;
 
 const One = styled.div`
   font-size: 15px;
   color: white;
-  padding-top: 30px;
+  padding-top: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
