@@ -45,7 +45,7 @@ function Login() {
   return (
     <div
       style={{
-        height: "90vh",
+        height: "100vh",
         width: "100%",
         backgroundImage: `url(${feature})`,
       }}
@@ -93,13 +93,14 @@ function Login() {
     </div>
   );
 }
+
 const Wrapper = styled.div`
   padding: 40px;
   -webkit-box-shadow: 0px 2px 15px 5px #dedede;
   box-shadow: 0px 2px 15px 5px #dedede;
   background-color: white;
   border-radius: 15px;
-  max-width: 350px;
+  width: 350px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 70px;

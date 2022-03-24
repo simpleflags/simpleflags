@@ -32,10 +32,11 @@ const Projects = styled.div`
   background-image: url(${img});
   background-size: cover;
   background-position: center;
+  font-size: 20px;
 `;
 
 const One = styled.div`
-  font-size: 15px;
+  font-size: 20px;
   color: white;
   padding-top: 10px;
   display: flex;

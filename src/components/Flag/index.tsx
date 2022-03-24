@@ -31,153 +31,97 @@ function Flag(props: { flag: string }) {
         </ul>
       </FF>
       <Status>
-        <Paper>
-          <table style={{ marginBottom: 50, marginRight: 50 }}>
-            <tr>
-              <th>
-                Default
-                <ON>
-                  <th>On</th>
-                  <th>Off</th>
-                </ON>
-              </th>
-              <th>Identify</th>
-              <th>Name</th>
-              <th>Description</th>
-              <th>Value</th>
-            </tr>
+        <table>
+          <tr>
+            <th>
+              Default
+              <ON>
+                <th>On</th>
+                <th>Off</th>
+              </ON>
+            </th>
+            <th>Identify</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Value</th>
+          </tr>
 
-            <tr
-              style={{
-                background: activeFlags.includes("red-1")
-                  ? "#00ff00"
-                  : activeFlags.includes("red-2")
-                  ? "red"
-                  : "",
-              }}
-            >
+          <tr
+            style={{
+              background: activeFlags.includes("red-1")
+                ? "#07dd80"
+                : activeFlags.includes("red-2")
+                ? "red"
+                : "",
+            }}
+          >
+            <td>
               <td>
-                <td>
-                  <form onSubmit={handleSubmit}>
-                    {" "}
-                    <RadionCenter>
-                      <Radio
-                        value="red-1"
-                        checked={gender === "red-1"}
-                        onChange={handleChange}
-                        onClick={() => {
-                          setActiveFlags(["red-1"]);
-                          console.log(activeFlags);
-                        }}
-                      />
-                    </RadionCenter>
-                  </form>
-                </td>
-
-                <td>
+                <form onSubmit={handleSubmit}>
+                  {" "}
                   <RadionCenter>
                     <Radio
-                      value="red-2"
-                      checked={gender === "red-2"}
+                      value="red-1"
+                      checked={gender === "red-1"}
                       onChange={handleChange}
                       onClick={() => {
-                        setActiveFlags(["red-2"]);
+                        setActiveFlags(["red-1"]);
                         console.log(activeFlags);
                       }}
                     />
                   </RadionCenter>
-                </td>
-              </td>
-              <td>
-                <TextInput placeholder="True" size="xs" />
-              </td>
-              <td>
-                <TextInput placeholder="True" size="xs" />
-              </td>
-              <td>
-                <TextInput placeholder="True" size="xs" />
-              </td>
-              <td>
-                <TextInput placeholder="/" size="xs" />
-              </td>
-            </tr>
-
-            <tr
-              style={{
-                backgroundColor: activeFlags.includes("red-3")
-                  ? "#00ff00"
-                  : activeFlags.includes("red-4")
-                  ? "red"
-                  : "",
-              }}
-            >
-              <td>
-                <form onSubmit={handleSubmit}>
-                  <td>
-                    {" "}
-                    <RadionCenter>
-                      <Radio
-                        disabled={first.on}
-                        value="red-3"
-                        checked={gender === "red-3"}
-                        onChange={handleChange}
-                        onClick={() => {
-                          setActiveFlags(["red-3"]);
-                          console.log(activeFlags);
-                        }}
-                      />
-                    </RadionCenter>
-                  </td>
-                  <td>
-                    {" "}
-                    <RadionCenter>
-                      <Radio
-                        value="red-4"
-                        checked={gender === "red-4"}
-                        onChange={handleChange}
-                        onClick={() => {
-                          setActiveFlags(["red-4"]);
-                          console.log(activeFlags);
-                        }}
-                      />
-                    </RadionCenter>
-                  </td>
                 </form>
               </td>
 
               <td>
-                <TextInput placeholder="False" size="xs" />
+                <RadionCenter>
+                  <Radio
+                    value="red-2"
+                    checked={gender === "red-2"}
+                    onChange={handleChange}
+                    onClick={() => {
+                      setActiveFlags(["red-2"]);
+                      console.log(activeFlags);
+                    }}
+                  />
+                </RadionCenter>
               </td>
-              <td>
-                <TextInput placeholder="True" size="xs" />
-              </td>
-              <td>
-                <TextInput placeholder="/" size="xs" />
-              </td>
+            </td>
+            <td>
+              <TextInput placeholder="True" size="xs" />
+            </td>
+            <td>
+              <TextInput placeholder="True" size="xs" />
+            </td>
+            <td>
+              <TextInput placeholder="True" size="xs" />
+            </td>
+            <td>
+              <TextInput placeholder="/" size="xs" />
+            </td>
+          </tr>
 
-              <td>
-                <TextInput placeholder="True" size="xs" />
-              </td>
-            </tr>
-            <tr
-              style={{
-                backgroundColor: activeFlags.includes("red-5")
-                  ? "#00ff00"
-                  : activeFlags.includes("red-6")
-                  ? "red"
-                  : "",
-              }}
-            >
-              <td>
+          <tr
+            style={{
+              backgroundColor: activeFlags.includes("red-3")
+                ? "#07dd80"
+                : activeFlags.includes("red-4")
+                ? "red"
+                : "",
+            }}
+          >
+            <td>
+              <form onSubmit={handleSubmit}>
                 <td>
                   {" "}
                   <RadionCenter>
                     <Radio
-                      value="red-5"
-                      checked={gender === "red-5"}
+                      disabled={first.on}
+                      value="red-3"
+                      checked={gender === "red-3"}
                       onChange={handleChange}
                       onClick={() => {
-                        setActiveFlags(["red-5"]);
+                        setActiveFlags(["red-3"]);
                         console.log(activeFlags);
                       }}
                     />
@@ -187,35 +131,89 @@ function Flag(props: { flag: string }) {
                   {" "}
                   <RadionCenter>
                     <Radio
-                      value="red-6"
-                      checked={gender === "red-6"}
+                      value="red-4"
+                      checked={gender === "red-4"}
                       onChange={handleChange}
                       onClick={() => {
-                        setActiveFlags(["red-6"]);
+                        setActiveFlags(["red-4"]);
                         console.log(activeFlags);
                       }}
                     />
                   </RadionCenter>
                 </td>
-              </td>
+              </form>
+            </td>
 
-              <td>
-                <TextInput placeholder="False" size="xs" />
-              </td>
-              <td>
-                <TextInput placeholder="True" size="xs" />
-              </td>
+            <td>
+              <TextInput placeholder="False" size="xs" />
+            </td>
+            <td>
+              <TextInput placeholder="True" size="xs" />
+            </td>
+            <td>
+              <TextInput placeholder="/" size="xs" />
+            </td>
 
+            <td>
+              <TextInput placeholder="True" size="xs" />
+            </td>
+          </tr>
+          <tr
+            style={{
+              backgroundColor: activeFlags.includes("red-5")
+                ? "#07dd80"
+                : activeFlags.includes("red-6")
+                ? "red"
+                : "",
+            }}
+          >
+            <td>
               <td>
-                <TextInput placeholder="/" size="xs" />
+                {" "}
+                <RadionCenter>
+                  <Radio
+                    value="red-5"
+                    checked={gender === "red-5"}
+                    onChange={handleChange}
+                    onClick={() => {
+                      setActiveFlags(["red-5"]);
+                      console.log(activeFlags);
+                    }}
+                  />
+                </RadionCenter>
               </td>
+              <td>
+                {" "}
+                <RadionCenter>
+                  <Radio
+                    value="red-6"
+                    checked={gender === "red-6"}
+                    onChange={handleChange}
+                    onClick={() => {
+                      setActiveFlags(["red-6"]);
+                      console.log(activeFlags);
+                    }}
+                  />
+                </RadionCenter>
+              </td>
+            </td>
 
-              <td>
-                <TextInput placeholder="True" size="xs" />
-              </td>
-            </tr>
-          </table>
-        </Paper>
+            <td>
+              <TextInput placeholder="False" size="xs" />
+            </td>
+            <td>
+              <TextInput placeholder="True" size="xs" />
+            </td>
+
+            <td>
+              <TextInput placeholder="/" size="xs" />
+            </td>
+
+            <td>
+              <TextInput placeholder="True" size="xs" />
+            </td>
+          </tr>
+        </table>
       </Status>
     </Wrapper>
   );
@@ -223,10 +221,12 @@ function Flag(props: { flag: string }) {
 
 const RadionCenter = styled.div`
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
 `;
 const ON = styled.div`
-  padding-left: 55px;
+  padding-left: 58px;
   text-align: center;
 `;
 const Wrapper = styled.div``;
@@ -277,6 +277,8 @@ const Status = styled.table`
   th {
     border-collapse: collapse;
     width: 165vh;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+      rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
   }
   th:nth-child(1) {
     width: 20%;

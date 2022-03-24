@@ -28,23 +28,25 @@ function Flags() {
   return (
     <>
       <WrapperFlags>
-        <Select
-          label="Choose employee of the month"
-          placeholder="Pick one"
-          data={arrayFlags}
-          onChange={(e) => {
-            setSearchFlag(() => {
-              return arrayFlags.find((el) => {
-                return el === e;
+        <ChooseSearch>
+          <p>Choose employee </p>
+          <Select
+            // label="Choose employee of the month"
+            placeholder="Pick one"
+            data={arrayFlags}
+            onChange={(e) => {
+              setSearchFlag(() => {
+                return arrayFlags.find((el) => {
+                  return el === e;
+                });
               });
-            });
-            console.log(e);
-          }}
-          searchable
-          maxDropdownHeight={400}
-          nothingFound="Nobody here"
-        />
-        Feature Flags
+              console.log(e);
+            }}
+            searchable
+            maxDropdownHeight={400}
+            nothingFound="Nobody here"
+          />
+        </ChooseSearch>
         <>
           <Button
             variant="gradient"
@@ -59,7 +61,13 @@ function Flags() {
     </>
   );
 }
-
+const ChooseSearch = styled.div`
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+`;
 const WrapperFlags = styled.div`
   color: black;
   font-size: 16px;

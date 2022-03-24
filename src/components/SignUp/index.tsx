@@ -41,7 +41,7 @@ function SignUp() {
   return (
     <div
       style={{
-        height: "90vh",
+        height: "100vh",
         width: "100%",
         backgroundImage: `url(${feature})`,
       }}
