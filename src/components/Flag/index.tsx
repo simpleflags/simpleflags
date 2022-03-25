@@ -2,6 +2,7 @@ import { Paper, Radio, RadioGroup, TextInput } from "@mantine/core";
 import { formList } from "@mantine/form";
 import React, { useCallback, useState } from "react";
 import styled from "styled-components";
+import { myTheme } from "../../style/theme";
 
 function Flag(props: { flag: string }) {
   const [first, setFirst] = useState({ on: false, off: false });
@@ -45,14 +46,14 @@ function Flag(props: { flag: string }) {
             <th>Value</th>
           </tr>
 
-          <tr
-            style={{
-              background: activeFlags.includes("red-1")
-                ? "#07dd80"
+          <StyledTabelRow
+            backgroundColor={
+              activeFlags.includes("red-1")
+                ? myTheme.colors.lightGreen
                 : activeFlags.includes("red-2")
-                ? "red"
-                : "",
-            }}
+                ? myTheme.colors.red
+                : ""
+            }
           >
             <td>
               <td>
@@ -95,16 +96,16 @@ function Flag(props: { flag: string }) {
             <td>
               <TextInput placeholder="/" size="xs" />
             </td>
-          </tr>
+          </StyledTabelRow>
 
-          <tr
-            style={{
-              backgroundColor: activeFlags.includes("red-3")
-                ? "#07dd80"
+          <StyledTabelRow
+            backgroundColor={
+              activeFlags.includes("red-3")
+                ? myTheme.colors.lightGreen
                 : activeFlags.includes("red-4")
-                ? "red"
-                : "",
-            }}
+                ? myTheme.colors.red
+                : ""
+            }
           >
             <td>
               <form onSubmit={handleSubmit}>
@@ -149,15 +150,15 @@ function Flag(props: { flag: string }) {
             <td>
               <TextInput placeholder="True" size="xs" />
             </td>
-          </tr>
-          <tr
-            style={{
-              backgroundColor: activeFlags.includes("red-5")
-                ? "#07dd80"
+          </StyledTabelRow>
+          <StyledTabelRow
+            backgroundColor={
+              activeFlags.includes("red-5")
+                ? myTheme.colors.lightGreen
                 : activeFlags.includes("red-6")
-                ? "red"
-                : "",
-            }}
+                ? myTheme.colors.red
+                : ""
+            }
           >
             <td>
               <td>
@@ -200,12 +201,16 @@ function Flag(props: { flag: string }) {
             <td>
               <TextInput placeholder="True" size="xs" />
             </td>
-          </tr>
+          </StyledTabelRow>
         </table>
       </Status>
     </>
   );
 }
+
+const StyledTabelRow = styled.tr<{ backgroundColor: string }>`
+  background: ${(props) => props.backgroundColor};
+`;
 
 const RadioCenterWrapper = styled.div`
   display: flex;

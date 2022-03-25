@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Navbar, ScrollArea } from "@mantine/core";
+import { myTheme } from "../../style/theme";
 
 function Navigation() {
   const navigate = useNavigate();
@@ -13,9 +14,6 @@ function Navigation() {
       setGender(target.value);
     }
   };
-  const handleSubmit = (e: any) => {
-    e.preventDefault();
-  };
   return (
     <Nav>
       <NavLogo>Simple Flags</NavLogo>
@@ -23,12 +21,13 @@ function Navigation() {
         onChange={handleChange}
         onClick={() => {
           navigate("/Projects");
-          setColor(["#0278d5"]);
+          setColor([myTheme.colors.lightBlue]);
         }}
-        style={{
-          backgroundColor: color.includes("#0278d5") ? "#0278d5" : "",
-          width: "95px",
-        }}
+        backgroundColor={
+          color.includes(myTheme.colors.lightBlue)
+            ? myTheme.colors.lightBlue
+            : ""
+        }
       >
         Project
       </Text>
@@ -38,10 +37,9 @@ function Navigation() {
           navigate("/Flags");
           setColor(["flags"]);
         }}
-        style={{
-          backgroundColor: color.includes("flags") ? "#0278d5" : "",
-          width: "80px",
-        }}
+        backgroundColor={
+          color.includes("flags") ? myTheme.colors.lightBlue : ""
+        }
       >
         Flags
       </Text>
@@ -50,10 +48,9 @@ function Navigation() {
           navigate("/Enviroments");
           setColor(["enviroments"]);
         }}
-        style={{
-          backgroundColor: color.includes("enviroments") ? "#0278d5" : "",
-          width: "140px",
-        }}
+        backgroundColor={
+          color.includes("enviroments") ? myTheme.colors.lightBlue : ""
+        }
       >
         Enviroments
       </Text>
@@ -62,17 +59,15 @@ function Navigation() {
           navigate("/Application");
           setColor(["application"]);
         }}
-        style={{
-          backgroundColor: color.includes("application") ? "#0278d5" : "",
-          width: "130px",
-        }}
+        backgroundColor={
+          color.includes("application") ? myTheme.colors.lightBlue : ""
+        }
       >
         Application
       </Text>
     </Nav>
   );
 }
-
 const Nav = styled.div`
   flex-direction: column;
   color: ${(props) => props.theme.colors.white};
@@ -96,13 +91,12 @@ const NavLogo = styled.div`
   width: 100%;
 `;
 
-const Text = styled.div`
-  width: 50px;
-  padding: 5px 20px 10px;
+const Text = styled.div<{ backgroundColor: string }>`
+  padding: 10px;
   margin-bottom: 15px;
   cursor: pointer;
   border-radius: 12px;
-  padding-left: 5px;
+  background: ${(props) => props.backgroundColor};
 `;
 
 export default Navigation;
