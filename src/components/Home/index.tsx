@@ -20,11 +20,11 @@ const Wrapper = styled.div`
 `;
 
 const AllProjects = styled.div`
-  color: black;
+  color: ${(props) => props.theme.colors.black};
   background-color: gray;
 `;
 const ProjectText = styled.div`
-  color: black;
+  color: ${(props) => props.theme.colors.black};
   float: left;
   padding-top: 30px;
   margin-left: 30px;

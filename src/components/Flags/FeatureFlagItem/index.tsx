@@ -15,8 +15,8 @@ const SwitchOff = styled.div`
   align-items: center;
   gap: 20px;
   border: 4px;
-  box-shadow: 0 1px 5px -4px black;
-  background-color: white;
+  box-shadow: 0 1px 5px -4px ${(props) => props.theme.colors.black};
+  background-color: ${(props) => props.theme.colors.white};
   margin-bottom: 20px;
   padding: 25px;
   width: 90%;
@@ -26,7 +26,7 @@ const SwitchOff = styled.div`
 
   &:hover {
     box-shadow: 0px 2px 8px -5px black;
-    border: 1px solid #0278d5;
+    border: 1px solid ${(props) => props.theme.colors.lightBlue};
     background-color: #fcfeff;
   }
 `;

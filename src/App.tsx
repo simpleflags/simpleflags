@@ -10,7 +10,7 @@ import Flags from "./components/Flags";
 
 function App() {
   return (
-    <AppLogo>
+    <AppWrapper>
       <Routes>
         <Route path="/" element={<Login />} />
         <Route path="ForgotPassword" element={<ForgotPassword />} />
@@ -24,10 +24,10 @@ function App() {
           <Route path="Application" element={<h1>Application</h1>} />
         </Route>
       </Routes>
-    </AppLogo>
+    </AppWrapper>
   );
 }
-const AppLogo = styled.div`
+const AppWrapper = styled.div`
   text-align: center;
   width: 100%;
   height: 100%;

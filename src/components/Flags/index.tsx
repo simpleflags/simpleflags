@@ -31,7 +31,6 @@ function Flags() {
         <ChooseSearch>
           <p>Choose employee </p>
           <Select
-            // label="Choose employee of the month"
             placeholder="Pick one"
             data={arrayFlags}
             onChange={(e) => {
@@ -40,7 +39,6 @@ function Flags() {
                   return el === e;
                 });
               });
-              console.log(e);
             }}
             searchable
             maxDropdownHeight={400}
@@ -69,15 +67,15 @@ const ChooseSearch = styled.div`
   width: 300px;
 `;
 const WrapperFlags = styled.div`
-  color: black;
+  color: ${(props) => props.theme.colors.black};;
   font-size: 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid #d9dae5;
-  border-bottom: 1px solid #d9dae5;
+  border-top: 1px solid ${(props) => props.theme.colors.lightSilver};
+  border-bottom: 1px solid ${(props) => props.theme.colors.lightSilver};
   padding: 10px 15px;
-  background-color: #effbff;
+  background-color: ${(props) => props.theme.colors.aliceBlue};
 `;
 
 const SearchIcon = styled.div`
@@ -98,14 +96,14 @@ const Icon = styled.div`
 const Background = styled.div`
   height: 74.1%;
   padding: 1px;
-  background-color: #effbff;
+  background-color: ${(props) => props.theme.colors.aliceBlue};
   justify-content: space-around;
   flex-direction: row;
 `;
 
 const FF = styled.div`
   display: flex;
-  background-color: #effbff;
+  background-color: ${(props) => props.theme.colors.aliceBlue};
   padding: 10px;
   justify-content: space-around;
 `;
@@ -122,17 +120,17 @@ const Create = styled.div`
   text-align: center;
   padding: 20px;
   padding-top: 50px;
-  color: white;
+  color: ${(props) => props.theme.colors.white};
 `;
 
 const AboutFlag = styled.div`
-  color: white;
+  color: ${(props) => props.theme.colors.white};
   padding-bottom: 20px;
   text-align: center;
 `;
 
 const Description = styled.div`
-  color: white;
+  color: ${(props) => props.theme.colors.white};
   padding-top: 20px;
 `;
 export default Flags;

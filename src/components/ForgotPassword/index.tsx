@@ -16,13 +16,7 @@ function ForgotPassw() {
   });
 
   return (
-    <div
-      style={{
-        height: "100vh",
-        width: "100%",
-        backgroundImage: `url(${feature})`,
-      }}
-    >
+    <WrapperImage>
       <Wrapper>
         <Box sx={{ maxWidth: 340 }} mx="auto">
           <img src={logo} className="App-logo" alt="logo" />
@@ -40,14 +34,20 @@ function ForgotPassw() {
           </form>
         </Box>
       </Wrapper>
-    </div>
+    </WrapperImage>
   );
 }
+const WrapperImage = styled.div`
+  height: 100vh;
+  width: 100%;
+  background-image: url(${feature});
+`;
 const Wrapper = styled.div`
   padding: 40px;
-  -webkit-box-shadow: 0px 2px 15px 5px #dedede;
-  box-shadow: 0px 2px 15px 5px #dedede;
-  background-color: white;
+  -webkit-box-shadow: 0px 2px 15px 5px
+    ${(props) => props.theme.colors.gainsBoro};
+  box-shadow: 0px 2px 15px 5px ${(props) => props.theme.colors.gainsBoro};
+  background-color: ${(props) => props.theme.colors.white};
   border-radius: 15px;
   max-width: 350px;
   margin-left: auto;

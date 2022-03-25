@@ -39,13 +39,7 @@ function SignUp() {
     },
   });
   return (
-    <div
-      style={{
-        height: "100vh",
-        width: "100%",
-        backgroundImage: `url(${feature})`,
-      }}
-    >
+    <WrapperImage>
       <Wrapper>
         <Box sx={{ maxWidth: 300 }} mx="auto">
           <img src={logo} className="App-logo" alt="logo" />
@@ -79,14 +73,20 @@ function SignUp() {
           </EmailPassword>
         </Box>
       </Wrapper>
-    </div>
+    </WrapperImage>
   );
 }
+const WrapperImage = styled.div`
+  height: 100vh;
+  width: 100%;
+  background-image: url(${feature});
+`;
 const Wrapper = styled.div`
   padding: 40px;
-  -webkit-box-shadow: 0px 2px 15px 5px #dedede;
-  box-shadow: 0px 2px 15px 5px #dedede;
-  background-color: white;
+  -webkit-box-shadow: 0px 2px 15px 5px
+    ${(props) => props.theme.colors.gainsBoro};
+  box-shadow: 0px 2px 15px 5px ${(props) => props.theme.colors.gainsBoro};
+  background-color: ${(props) => props.theme.colors.white};
   border-radius: 15px;
   max-width: 350px;
   margin-left: auto;
@@ -94,7 +94,7 @@ const Wrapper = styled.div`
   margin-top: 70px;
 `;
 const EmailPassword = styled.div`
-  color: black;
+  color: ${(props) => props.theme.colors.black};
   padding-top: 50px;
 `;
 const Email = styled.div`

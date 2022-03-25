@@ -5,7 +5,7 @@ function Sign() {
   return <SignIn>Sign in</SignIn>;
 }
 const SignIn = styled.div`
-  color: black;
+  color: ${(props) => props.theme.colors.black};
   font-size: 30px;
   padding: 20px;
 `;

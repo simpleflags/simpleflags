@@ -23,8 +23,8 @@ function PrivateRoute() {
 
 const Projects = styled.div`
   text-decoration: none;
-  background-color: #0278d5;
-  color: white;
+  background-color: ${(props) => props.theme.colors.lightBlue};
+  color: ${(props) => props.theme.colors.white};
   height: 15vh;
   width: 180vh;
   background-size: contain;
@@ -37,7 +37,7 @@ const Projects = styled.div`
 
 const One = styled.div`
   font-size: 20px;
-  color: white;
+  color: ${(props) => props.theme.colors.white};
   padding-top: 10px;
   display: flex;
   align-items: center;

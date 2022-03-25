@@ -6,7 +6,7 @@ import styled from "styled-components";
 function Flag(props: { flag: string }) {
   const [first, setFirst] = useState({ on: false, off: false });
   const [activeFlags, setActiveFlags] = useState<any[]>([]);
-  const [gender, setGender] = React.useState();
+  const [gender, setGender] = useState();
   const handleChange = (e: any) => {
     const target = e.target;
     if (target.checked) {
@@ -15,10 +15,9 @@ function Flag(props: { flag: string }) {
   };
   const handleSubmit = (e: any) => {
     e.preventDefault();
-    console.log(gender);
   };
   return (
-    <Wrapper>
+    <>
       {props.flag}
       <FF>
         <ul>
@@ -58,33 +57,30 @@ function Flag(props: { flag: string }) {
             <td>
               <td>
                 <form onSubmit={handleSubmit}>
-                  {" "}
-                  <RadionCenter>
+                  <RadioCenterWrapper>
                     <Radio
                       value="red-1"
                       checked={gender === "red-1"}
                       onChange={handleChange}
                       onClick={() => {
                         setActiveFlags(["red-1"]);
-                        console.log(activeFlags);
                       }}
                     />
-                  </RadionCenter>
+                  </RadioCenterWrapper>
                 </form>
               </td>
 
               <td>
-                <RadionCenter>
+                <RadioCenterWrapper>
                   <Radio
                     value="red-2"
                     checked={gender === "red-2"}
                     onChange={handleChange}
                     onClick={() => {
                       setActiveFlags(["red-2"]);
-                      console.log(activeFlags);
                     }}
                   />
-                </RadionCenter>
+                </RadioCenterWrapper>
               </td>
             </td>
             <td>
@@ -113,8 +109,7 @@ function Flag(props: { flag: string }) {
             <td>
               <form onSubmit={handleSubmit}>
                 <td>
-                  {" "}
-                  <RadionCenter>
+                  <RadioCenterWrapper>
                     <Radio
                       disabled={first.on}
                       value="red-3"
@@ -122,24 +117,21 @@ function Flag(props: { flag: string }) {
                       onChange={handleChange}
                       onClick={() => {
                         setActiveFlags(["red-3"]);
-                        console.log(activeFlags);
                       }}
                     />
-                  </RadionCenter>
+                  </RadioCenterWrapper>
                 </td>
                 <td>
-                  {" "}
-                  <RadionCenter>
+                  <RadioCenterWrapper>
                     <Radio
                       value="red-4"
                       checked={gender === "red-4"}
                       onChange={handleChange}
                       onClick={() => {
                         setActiveFlags(["red-4"]);
-                        console.log(activeFlags);
                       }}
                     />
-                  </RadionCenter>
+                  </RadioCenterWrapper>
                 </td>
               </form>
             </td>
@@ -169,32 +161,28 @@ function Flag(props: { flag: string }) {
           >
             <td>
               <td>
-                {" "}
-                <RadionCenter>
+                <RadioCenterWrapper>
                   <Radio
                     value="red-5"
                     checked={gender === "red-5"}
                     onChange={handleChange}
                     onClick={() => {
                       setActiveFlags(["red-5"]);
-                      console.log(activeFlags);
                     }}
                   />
-                </RadionCenter>
+                </RadioCenterWrapper>
               </td>
               <td>
-                {" "}
-                <RadionCenter>
+                <RadioCenterWrapper>
                   <Radio
                     value="red-6"
                     checked={gender === "red-6"}
                     onChange={handleChange}
                     onClick={() => {
                       setActiveFlags(["red-6"]);
-                      console.log(activeFlags);
                     }}
                   />
-                </RadionCenter>
+                </RadioCenterWrapper>
               </td>
             </td>
 
@@ -215,11 +203,11 @@ function Flag(props: { flag: string }) {
           </tr>
         </table>
       </Status>
-    </Wrapper>
+    </>
   );
 }
 
-const RadionCenter = styled.div`
+const RadioCenterWrapper = styled.div`
   display: flex;
   justify-content: center;
   text-align: center;
@@ -229,11 +217,10 @@ const ON = styled.div`
   padding-left: 58px;
   text-align: center;
 `;
-const Wrapper = styled.div``;
 
 const FF = styled.div`
   font-size: 18px;
-  border-bottom: 0.5px solid #d9dae5;
+  border-bottom: 0.5px solid ${(props) => props.theme.colors.lightSilver};
 
   text-align: left;
   ul {
@@ -244,21 +231,21 @@ const FF = styled.div`
   li,
   input {
     border: none;
-    background-color: #effbff;
+    background-color: ${(props) => props.theme.colors.aliceBlue};
     font-size: 16px;
   }
   li:nth-child(1) {
-    border-bottom: 1px solid #0278d5;
+    border-bottom: 1px solid ${(props) => props.theme.colors.lightBlue};
     width: 200px;
   }
   li:nth-child(2) {
-    border-bottom: 1px solid #0278d5;
+    border-bottom: 1px solid ${(props) => props.theme.colors.lightBlue};
     width: 200px;
   }
 
   ul li::before {
     content: "• ";
-    color: #0278d5;
+    color: ${(props) => props.theme.colors.lightBlue};
   }
 `;
 

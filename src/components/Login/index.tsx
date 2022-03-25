@@ -43,13 +43,7 @@ function Login() {
   });
 
   return (
-    <div
-      style={{
-        height: "100vh",
-        width: "100%",
-        backgroundImage: `url(${feature})`,
-      }}
-    >
+    <WrapperImage>
       <Wrapper>
         <Box sx={{ maxWidth: 350 }} mx="auto">
           <img src={logo} className="App-logo" alt="logo" />
@@ -90,15 +84,20 @@ function Login() {
           </form>
         </Box>
       </Wrapper>
-    </div>
+    </WrapperImage>
   );
 }
-
+const WrapperImage = styled.div`
+  height: 100vh;
+  width: 100%;
+  background-image: url(${feature});
+`;
 const Wrapper = styled.div`
   padding: 40px;
-  -webkit-box-shadow: 0px 2px 15px 5px #dedede;
-  box-shadow: 0px 2px 15px 5px #dedede;
-  background-color: white;
+  -webkit-box-shadow: 0px 2px 15px 5px
+    ${(props) => props.theme.colors.gainsBoro};
+  box-shadow: 0px 2px 15px 5px ${(props) => props.theme.colors.gainsBoro};
+  background-color: ${(props) => props.theme.colors.white};
   border-radius: 15px;
   width: 350px;
   margin-left: auto;
@@ -114,7 +113,7 @@ const Acc = styled.div`
   padding: 20px;
 `;
 const SignUpp = styled.div`
-  color: #0278d5;
+  color: ${(props) => props.theme.colors.lightBlue};
   cursor: pointer;
 `;
 
@@ -127,9 +126,11 @@ const PassForg = styled.div`
   justify-content: space-between;
   margin-top: 20px;
 `;
-const Password = styled.div``;
+const Password = styled.div`
+  color: ${(props) => props.theme.colors.black};
+`;
 const Forget = styled.div`
-  color: #0278d5;
+  color: ${(props) => props.theme.colors.lightBlue};
   margin-bottom: 12px;
 `;
 

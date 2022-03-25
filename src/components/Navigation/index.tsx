@@ -5,7 +5,7 @@ import { Navbar, ScrollArea } from "@mantine/core";
 
 function Navigation() {
   const navigate = useNavigate();
-  const [color, setColor] = useState<any[]>([]);
+  const [color, setColor] = useState<string[]>([]);
   const [gender, setGender] = React.useState();
   const handleChange = (e: any) => {
     const target = e.target;
@@ -75,7 +75,7 @@ function Navigation() {
 
 const Nav = styled.div`
   flex-direction: column;
-  color: white;
+  color: ${(props) => props.theme.colors.white};
   width: 400px;
   background-color: #1a202c;
   font-size: 20px;
@@ -89,7 +89,7 @@ const Nav = styled.div`
 `;
 
 const NavLogo = styled.div`
-  color: white;
+  color: ${(props) => props.theme.colors.white};
   padding-bottom: 40px;
   padding-top: 15px;
   margin-top: 20px;
