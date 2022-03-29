@@ -7,6 +7,7 @@ import ForgotPassword from "./components/ForgotPassword";
 import styled from "styled-components";
 import MainScreen from "./components/PrivateRoute";
 import Flags from "./components/Flags";
+import Environment from "./components/Environment";
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
           <Route path="Projects" element={<h1>Projects</h1>} />
           <Route path="Flags/:Flag" element={<Flags />} />
           <Route path="Flags" element={<Flags />} />/
-          <Route path="Enviroments" element={<h1>Enviroments</h1>} />
+          <Route path="Enviroments" element={<Environment />} />
           <Route path="Application" element={<h1>Application</h1>} />
         </Route>
       </Routes>
