@@ -1,10 +1,11 @@
 import { Button, Divider, PasswordInput, TextInput } from "@mantine/core";
-import { BrandGithub, BrandGitlab } from "tabler-icons-react";
+import { BrandGithub, BrandGitlab, BrandGoogle } from "tabler-icons-react";
 import {
   FormWrapper,
   HelperText,
   InputsWrapper,
   LinkText,
+  LoginDivider,
   Title,
   Wrapper,
 } from "./LoginForm.styled";
@@ -50,7 +51,19 @@ export function LoginForm() {
         >
           Sign in with Gitlab
         </Button>
-        <Divider my="xs" label="or continue with" labelPosition="center" />
+        <Button
+          fullWidth
+          variant="default"
+          color="gray"
+          leftIcon={<BrandGoogle />}
+          radius="md"
+          size="md"
+          my="sm"
+        >
+          Sign in with Google
+        </Button>
+
+        <LoginDivider label="or continue with" labelPosition="center" />
 
         <InputsWrapper>
           <TextInput

@@ -1,3 +1,4 @@
+import { Divider } from "@mantine/core";
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
@@ -11,6 +12,14 @@ export const Wrapper = styled.div`
 export const Title = styled.h1`
   color: ${({ theme }) => theme.colors.lightBlue};
   font-size: 26px;
+`;
+
+export const LoginDivider = styled(Divider)`
+  width: 100%;
+
+  .mantine-Divider-label {
+    font-size: 14px;
+  }
 `;
 
 export const FormWrapper = styled.div`

@@ -17,7 +17,6 @@ export function LoginPage() {
         <Image src={ff_login} width={450} height={450} alt="flag" />
       </ImageSection>
 
-      <LogoTitle>SimpleFlags</LogoTitle>
       <FormSection>
         <LoginForm />
       </FormSection>
