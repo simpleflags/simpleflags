@@ -10,17 +10,17 @@ import {
 import { useForm } from "@mantine/form";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import Sign from "../Sign";
-import logo from "../../logo.svg";
-import feature from "../img/feature.png";
+import logo from "../../assets/images/logo.svg";
+import feature from "../../assets/images/feature.png";
 import { api } from "../../api";
+import { FormSection, ImageSection, PageWrapper } from "./LoginPage.styled";
 
 type User = {
   email: string;
   password: string;
 };
 
-function Login() {
+export function LoginPage() {
   const onSubmit = (user: User) => {
     api.post("/login", user).then((response) => {
       if (response.status === 200) {
@@ -43,48 +43,52 @@ function Login() {
   });
 
   return (
-    <WrapperImage>
-      <Wrapper>
-        <Box sx={{ maxWidth: 350 }} mx="auto">
-          <img src={logo} className="App-logo" alt="logo" />
-          <Sign />
+    <PageWrapper>
+      <ImageSection />
+      <FormSection>21312</FormSection>
+    </PageWrapper>
+    // <WrapperImage>
+    //   <Wrapper>
+    //     <Box sx={{ maxWidth: 350 }} mx="auto">
+    //       <img src={logo} className="App-logo" alt="logo" />
+    //       {/* <Sign /> */}
 
-          <form onSubmit={form.onSubmit((values) => onSubmit(values))}>
-            <Email>Email</Email>
-            <TextInput
-              required
-              placeholder="your@email.com"
-              {...form.getInputProps("email")}
-            />
-            <PassForg>
-              <Password>Password</Password>
-              <Forget onClick={() => navigate("/ForgotPassword")}>
-                Forgot password?
-              </Forget>
-            </PassForg>
-            <PasswordInput
-              placeholder="Password"
-              {...form.getInputProps("password")}
-            />
-            <Checkbox
-              mt="md"
-              label="I agree to sell my privacy"
-              {...form.getInputProps("termsOfService", { type: "checkbox" })}
-            />
+    //       <form onSubmit={form.onSubmit((values) => onSubmit(values))}>
+    //         <Email>Email</Email>
+    //         <TextInput
+    //           required
+    //           placeholder="your@email.com"
+    //           {...form.getInputProps("email")}
+    //         />
+    //         <PassForg>
+    //           <Password>Password</Password>
+    //           <Forget onClick={() => navigate("/ForgotPassword")}>
+    //             Forgot password?
+    //           </Forget>
+    //         </PassForg>
+    //         <PasswordInput
+    //           placeholder="Password"
+    //           {...form.getInputProps("password")}
+    //         />
+    //         <Checkbox
+    //           mt="md"
+    //           label="I agree to sell my privacy"
+    //           {...form.getInputProps("termsOfService", { type: "checkbox" })}
+    //         />
 
-            <Group position="right" mt="md">
-              <Button type="submit" /* onClick={() => navigate("/Home")}  */>
-                Sign in
-              </Button>
-            </Group>
-            <Acc>
-              <div>No account?</div>
-              <SignUpp onClick={() => navigate("/SignUp")}>Sign up</SignUpp>
-            </Acc>
-          </form>
-        </Box>
-      </Wrapper>
-    </WrapperImage>
+    //         <Group position="right" mt="md">
+    //           <Button type="submit" /* onClick={() => navigate("/Home")}  */>
+    //             Sign in
+    //           </Button>
+    //         </Group>
+    //         <Acc>
+    //           <div>No account?</div>
+    //           <SignUpp onClick={() => navigate("/SignUp")}>Sign up</SignUpp>
+    //         </Acc>
+    //       </form>
+    //     </Box>
+    //   </Wrapper>
+    // </WrapperImage>
   );
 }
 const WrapperImage = styled.div`
@@ -133,5 +137,3 @@ const Forget = styled.div`
   color: ${(props) => props.theme.colors.lightBlue};
   margin-bottom: 12px;
 `;
-
-export default Login;
