@@ -8,7 +8,11 @@ export const PageWrapper = styled.div`
 
 export const ImageSection = styled.section`
   width: 780px;
-  background-color: black;
+  background: #bddcf7;
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const FormSection = styled.section`
