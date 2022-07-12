@@ -6,6 +6,12 @@ export const PageWrapper = styled.div`
   display: flex;
 `;
 
+export const LogoTitle = styled.h1`
+  margin-left: 10px;
+  font-weight: 700;
+  font-size: 24px;
+`;
+
 export const ImageSection = styled.section`
   width: 780px;
   background: #bddcf7;

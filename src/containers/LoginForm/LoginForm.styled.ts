@@ -1,43 +1,41 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  padding: 40px;
-  -webkit-box-shadow: 0px 2px 15px 5px
-    ${(props) => props.theme.colors.gainsBoro};
-  box-shadow: 0px 2px 15px 5px ${(props) => props.theme.colors.gainsBoro};
-  background-color: ${(props) => props.theme.colors.white};
-  border-radius: 15px;
-  width: 350px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 70px;
-`;
-export const Acc = styled.div`
+  width: 450px;
   display: flex;
-  gap: 15px;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-  padding: 20px;
-`;
-export const SignUpp = styled.div`
-  color: ${(props) => props.theme.colors.lightBlue};
-  cursor: pointer;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
 `;
 
-export const Email = styled.div`
-  width: 45px;
-  margin-bottom: 12px;
+export const Title = styled.h1`
+  color: ${({ theme }) => theme.colors.lightBlue};
+  font-size: 26px;
 `;
-export const PassForg = styled.div`
+
+export const FormWrapper = styled.div`
+  width: 100%;
   display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 `;
-export const Password = styled.div`
-  color: ${(props) => props.theme.colors.black};
+
+export const InputsWrapper = styled.div`
+  width: 100%;
+  margin-bottom: 10px;
 `;
-export const Forget = styled.div`
-  color: ${(props) => props.theme.colors.lightBlue};
-  margin-bottom: 12px;
+
+export const HelperText = styled.div`
+  margin-top: 5px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+`;
+
+export const LinkText = styled.h1`
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: underline;
+  cursor: pointer;
 `;
