@@ -1,11 +1,12 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate, Outlet, useLocation } from "react-router-dom";
 
 export default function ProtectedRoute({
   children,
 }: {
   children?: JSX.Element;
 }): JSX.Element {
-  const user = false;
+  const location = useLocation();
+  const user = true;
 
   if (!user) {
     // Redirect them to the /login page, but save the current location they were

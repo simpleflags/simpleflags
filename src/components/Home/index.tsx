@@ -4,12 +4,8 @@ import styled from "styled-components";
 function Home() {
   return (
     <Wrapper>
-      <All>
-        <AllProjects>
-          <p>Projects</p>
-          <ProjectText>Project 1</ProjectText>
-        </AllProjects>
-      </All>
+      Home Page <br />
+      login - /login
     </Wrapper>
   );
 }
